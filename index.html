@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Video Wallpaper Switcher</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        .videoBackground {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            background-size: cover;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <video id="videoBackground1" class="videoBackground" autoplay loop muted>
+        <source src="bewitching-miss-fortune.1920x1080.mp4" type="video/mp4">
+    </video>
+    <video id="videoBackground2" class="videoBackground" autoplay loop muted style="opacity: 0;">
+        <source src="cinnamoroll-flying-in-clouds.1920x1080.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        const videos = [
+            'bewitching-miss-fortune.1920x1080.mp4',
+            'cinnamoroll-flying-in-clouds.1920x1080.mp4',
+            'cinnamoroll-flying-in-sweets.1920x1080.mp4',
+            'cinnamoroll-in-ocean.1920x1080.mp4',
+            'gun-goddess-miss-fortune.1920x1080.mp4',
+            'hello-kitty-with-friends.1920x1080.mp4',
+            'hello-kitty-with-strawberry-cocktail.1920x1080.mp4',
+            'karma-lol.1920x1080.mp4',
+            'prestige-cyber-halo-janna-lol.1920x1080.mp4',
+            'solar-lunar-eclipse-leona.1920x1080.mp4',
+            'spirit-blossom-kindred-lol.1920x1080.mp4',
+            'unbound-thresh.1920x1080.mp4'
+        ];
+        let currentVideoIndex = 0;
+        const videoElement1 = document.getElementById('videoBackground1');
+        const videoElement2 = document.getElementById('videoBackground2');
+        let activeVideo = videoElement1;
+        let inactiveVideo = videoElement2;
+
+        function switchWallpaper() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            inactiveVideo.src = videos[currentVideoIndex];
+            inactiveVideo.play();
+
+            // Fade out the active video and fade in the inactive video
+            activeVideo.style.opacity = '0';
+            inactiveVideo.style.opacity = '1';
+
+            // Swap active and inactive videos
+            [activeVideo, inactiveVideo] = [inactiveVideo, activeVideo];
+        }
+
+        // Switch wallpaper every 10 seconds (10000 milliseconds)
+        setInterval(switchWallpaper, 10000);
+    </script>
+</body>
+</html>
