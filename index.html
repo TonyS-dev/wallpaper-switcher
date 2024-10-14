@@ -16,11 +16,9 @@
             position: fixed;
             right: 0;
             bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            background-size: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: opacity 1s ease-in-out;
         }
     </style>
@@ -32,10 +30,8 @@
     <video id="videoBackground2" class="videoBackground" autoplay loop muted style="opacity: 0;">
         <source src="wallpapers/cinnamoroll-flying-in-clouds.1920x1080.mp4" type="video/mp4">
     </video>
-
-
     <script>
-        const videos = [
+       const videos = [
             'wallpapers/bewitching-miss-fortune.1920x1080.mp4',
             'wallpapers/cinnamoroll-flying-in-clouds.1920x1080.mp4',
             'wallpapers/cinnamoroll-flying-in-sweets.1920x1080.mp4',
